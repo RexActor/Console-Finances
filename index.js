@@ -103,11 +103,12 @@ for (var i = 0; i < finances.length; i++) {
 
   //checking if "i" is not out of bounds due that we are comparing against next month.
   if (i < finances.length - 1) {
+    //checking if greatest increase change. If current checked increase is higher than already stored value, then value is being reassigned for "greatesIncreaseValue" and "greatestIncreaseMonth"
     if (greatesIncreaseValue < finances[i + 1][1] - finances[i][1]) {
       greatesIncreaseValue = finances[i + 1][1] - finances[i][1];
       greatestIncreaseMonth = finances[i + 1][0];
     }
-
+    //checking if greatest decrease change. If current checked increase is higher than already stored value, then value is being reassigned for "greatesDecreaseValue" and "greatestDecreaseMonth"
     if (greatesDecreaseValue > finances[i + 1][1] - finances[i][1]) {
       greatesDecreaseValue = finances[i + 1][1] - finances[i][1];
       greatestDecreaseMonth = finances[i + 1][0];
@@ -120,6 +121,7 @@ for (var i = 0; i < finances.length; i++) {
 //calculating average changes
 averageChange = totalChange / (finances.length - 1);
 
+//displaying all information in console
 console.log(
   "Financial Analysis \n" +
     "----------------" +
@@ -129,7 +131,7 @@ console.log(
     totalValue +
     "\nAverage Change: " +
     averageChange.toFixed(2) +
-    "\nGreatest Increase in Protif/Loses: " +
+    "\nGreatest Increase in Profits/Losses: " +
     greatestIncreaseMonth +
     " ($" +
     greatesIncreaseValue +
